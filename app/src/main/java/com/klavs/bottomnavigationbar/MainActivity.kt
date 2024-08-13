@@ -111,6 +111,16 @@ fun Greeting(anaEkranViewModel: AnaEkranViewModel) {
             }
         }
     }) {
+        if (anaEkranViewModel.isLoading) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxSize()
+            ) {
+                CircularProgressIndicator()
+            }
+
+        }
         NavHost(navController = navController, startDestination = Screen.HomeScreen.route, modifier = Modifier.padding(it)) {
             composable(Screen.HomeScreen.route) {
                 AnaEkran(anaEkranViewModel)
